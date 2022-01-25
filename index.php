@@ -8,6 +8,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="bootstrap/css/custom.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
   <title>Personal Contact Agenda - Main</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
     <h1 class="page-header text-center">Personal Contact Agenda</h1>
     <div class="row">
       <div class="col-sm-12">
-        <a href="#addNew" class="btn btn-primary" data-toggle="modal">New Contact <span class="fa fa-plus"></span></a>
+        <a href="#addNew" class="btn btn-primary" style="margin-bottom: 8px;" data-toggle="modal">New Contact <span class="fa fa-plus"></span></a>
 
         <?php 
         session_start();
@@ -54,7 +55,7 @@
         
         ?>
 
-        <table class="table table-bordered table-striped" style="margin-top:20px; " >
+        <table class="table table-bordered table-striped" id="PersonalContact" style="margin-top:20px; " >
           <thead>
             <th>ID</th>
             <th>Contact Name</th>
@@ -106,4 +107,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+      $('#PersonalContact').DataTable();
+  } );
+</script>
 </html>

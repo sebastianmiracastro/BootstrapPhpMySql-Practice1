@@ -10,7 +10,7 @@ role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form method="POST" action="AddContact.php">
+                    <form method="POST" action="AddContact.php" id="MyFormAdd">
                         <div class="row form-group">
                             <div class="col-sm-2">
                                 <label class="control-label">Name: </label>
@@ -44,7 +44,7 @@ role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                             </div>
                         </div>
                         <div class="modal-footer row justify-content-between">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="DeleteData()"><span class="
                             fa fa-close"></span> Cancel</button>
                             <button type="sumbit" name="AddC" class="btn btn-primary" ><span class="
                             fa fa-save"></span>  Save</button>
@@ -55,3 +55,8 @@ role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         </div>
     </div>
 </div>
+<script>
+    function DeleteData() {
+        document.getElementById('MyFormAdd').reset();
+    }
+</script>
