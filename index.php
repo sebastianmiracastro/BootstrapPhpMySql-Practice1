@@ -19,7 +19,7 @@
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
         <li><a class="dropdown-item " href="https://www.facebook.com/profile.php?id=100008382820923">Facebook</a></li>
-        <li><a class="dropdown-item" href="">WhatsApp</a></li>
+        <li><a class="dropdown-item" href="#Number" data-toggle="modal">WhatsApp</a></li>
         <li><a class="dropdown-item" href="https://github.com/sebastianmiracastro">GitHub</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" style="cursor: no-drop;" href="#">Contact me</a></li>
@@ -44,7 +44,6 @@
             <th>Phone Number</th>
             <th>Mail</th>
             <th>Address</th>
-            <th>Actions</th>
           </thead>
           <tbody>
 
@@ -53,6 +52,7 @@
       </div>
     </div>
     <?php include('addModal.php'); ?>
+    <?php include('Number.php'); ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="sidebars.js"></script>
