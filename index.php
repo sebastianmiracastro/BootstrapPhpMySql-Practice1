@@ -36,7 +36,24 @@
     <div class="row">
       <div class="col-sm-12">
         <a href="#addNew" class="btn btn-primary" data-toggle="modal">New Contact <span class="fa fa-plus"></span></a>
-      </div>
+
+        <?php 
+        session_start();
+        if(isset($_SESSION['message'])) {
+          ?>
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert" style="margin-top: 20px;">
+              &times;
+            </button>
+            <?php echo $_SESSION['message']; ?>
+          </div>
+
+          <?php 
+          unset( $_SESSION['message']);
+        }
+        
+        ?>
+
         <table class="table table-bordered table-striped" style="margin-top:20px; " >
           <thead>
             <th>ID</th>
@@ -44,11 +61,40 @@
             <th>Phone Number</th>
             <th>Mail</th>
             <th>Address</th>
+            <th>Actions</th>
           </thead>
           <tbody>
+            <?php
+              include_once('ConnectToDB.php');
+              $database = new ConectDB();
+              $db = $database->open();
+              try {
+                $sql = 'SELECT * FROM agenda_personal';
+                foreach ($db->query($sql) as $row) {
+                  ?>
+                    <tr>
+                      <td><?php echo $row['idPersona']; ?></td>
+                      <td><?php echo $row['Nombre']; ?></td>
+                      <td><?php echo $row['Telefono']; ?></td>
+                      <td><?php echo $row['Correo']; ?></td>
+                      <td><?php echo $row['Direccion']; ?></td>
+                      <td><a href="#edit_<?php echo $row['idPersona']; ?>" class="btn btn-success btn-sm" data-toggle="modal">
+                        <span class="fa fa-edit"></span>  Edit</a>
 
+                      <a href="#delete_<?php echo $row['idPersona']; ?>" class="btn btn-danger btn-sm" data-toggle="modal"> 
+                      <span class="fa fa-trash"></span>  Delete</a></td>
+                      <?php include('EditAndDeleteModal.php'); ?>
+                    </tr>
+                  <?php
+                }
+              } catch (PDOException $e) {
+                echo 'Connection problems : '.$e->getMessage();
+              }
+              $database->close();
+            ?>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
     <?php include('addModal.php'); ?>
